@@ -1,0 +1,8 @@
+#input {
+    width: 95%;
+    height: 90px;
+  }
+  ::placeholder {
+    text-align: center;
+    font-size: 40px;
+  }
