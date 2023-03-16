@@ -66,7 +66,7 @@ function formatString(rowdict) {
       if(Object.keys(rowdict).indexOf(key) == Object.keys(rowdict).length-1){
         formatedString += `<table><tr><td VALIGN=TOP>${formatString(rowdict[key])} </td></tr></table>`
       } else {
-        formatedString += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatString(rowdict[key])} </td></tr><tr><td>&darr;</td></tr></table>`
+        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatedString} </td></tr><tr></tr></table>`
       }
     })
   }
@@ -82,7 +82,7 @@ function display(list) {
       if(Object.keys(rowdict).indexOf(key)==Object.keys(rowdict).length-1){
         table.innerHTML += `<table><tr><td VALIGN=TOP>${formatedString} </td></tr></table>`
       } else {
-        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatedString} </td></tr><tr><td>&darr;</td></tr></table>`
+        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatedString} </td></tr><tr></tr></table>`
       }
     })
 }
