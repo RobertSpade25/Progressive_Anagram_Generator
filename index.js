@@ -46,7 +46,9 @@ function getList(){
   count = 0
   table.innerHTML = ""
   var ta = document.getElementById("input").value
-  var list = ta.split(",")
+  var list = ta.toLowerCase().split(",").map((word) => { 
+    return word[0].toUpperCase(); 
+});
   display(list)
 }
 
@@ -66,7 +68,7 @@ function formatString(rowdict) {
       if(Object.keys(rowdict).indexOf(key) == Object.keys(rowdict).length-1){
         formatedString += `<table><tr><td VALIGN=TOP>${formatString(rowdict[key])} </td></tr></table>`
       } else {
-        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatedString} </td></tr><tr></tr></table>`
+        formatedString += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatString(rowdict[key])} </td></tr><tr><td VALIGN=TOP colspan="1">&darr;</td></tr></table>`
       }
     })
   }
@@ -82,7 +84,7 @@ function display(list) {
       if(Object.keys(rowdict).indexOf(key)==Object.keys(rowdict).length-1){
         table.innerHTML += `<table><tr><td VALIGN=TOP>${formatedString} </td></tr></table>`
       } else {
-        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP>${formatedString} </td></tr><tr></tr></table>`
+        table.innerHTML += `<table><tr><td VALIGN=TOP>${key} no &rarr;</td><td VALIGN=TOP colspan="1">${formatedString} </td></tr><tr><td VALIGN=TOP>&darr;</td></tr></table>`
       }
     })
 }
